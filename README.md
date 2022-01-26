@@ -36,7 +36,7 @@ caso duvidas entre em contato! ( Clique Em Cima )
 
 ----------- Area De Downloads -----------
     
- - [Baixar Comandos Para a Instaçao Do Bot ( Clique )](https://www.mediafire.com/file/jamj9bromqe6lj9/Comandos_InfinityBot.txt/file)
+ - [Baixar Comandos Para a Instaçao Do Bot ( Clique )](https://www.mediafire.com/file/fn2p9ipc15cj0fi/Comandos_InfinityBot.txt/file)
     
 - [Baixar Termux 118 ( Clique )](https://www.apkmirror.com/apk/fredrik-fornwall/termux-fdroid-version/termux-fdroid-version-0-118-0-release/termux-fdroid-version-0-118-0-android-apk-download/download/)
     
