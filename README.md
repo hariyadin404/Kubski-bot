@@ -1,4 +1,4 @@
-# </Infinity Bot V1.5/>
+# </Infinity Bot V2/>
 <div align="center">
 </div>
 <p align="center">
@@ -11,20 +11,25 @@
   <h4 align="center">
 
 Um bot simples para whatsapp que está em desenvolvimento.
+```bash
+--------- Novidades Da V2 ---------
     
---------- Novidades Da V1.5 ---------
-    
-1 Novo Comando
-- linkgp ( Manda o Link Do Grupo )
-    
-- Antilink Arrumado
-- Promover Tirado Para Arrumar
-- Rebaixar Tirado Para Arrumar
-- Fazer Figurinhas Arrumado
-- Renomear Figurinhas Arrumado
-- Logos Arrumadas
-- Ban Arrumado
-- Reviver Arrumado
+[- 6 Novos Comandos -]
+- fazernick ( Nome )
+- consultarcpf ( Numero Do CPF )
+- consultarcep ( Numero Do CEP )
+- consultarcnpj ( Numero Do CNPJ )
+- consultarip ( Numero Do IP )
+- consultarddd ( Numero Do DDD )
+
+[- Correçoes -]
+- Promover a Adm Adicionado e Arrumado
+- Rebaixar a Adm Adicionado e Arrumado
+- Plays Arrumados Novamente
+- Logos Arrumadas Novamente
+
+em breve a v2.5 com varios novos comandos :)
+```
    
 ----------- Para Duvidas -----------
     
