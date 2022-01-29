@@ -33,6 +33,7 @@ return `​​​​​​​​​​​​​​​​​​​​​​​​
 ║    👥 ᏀᎡႮᏢϴՏ 👥
 ╠┅═┅══⟮ 👽️ ⟯══┅═┅═᳀
 ║
+║➤ ${prefix}linkgp
 ║➤ ${prefix}ban [Marque-Msg]
 ║➤ ${prefix}voltar [Marque-Msg]
 ║➤ ${prefix}antilink [on/off]
@@ -41,9 +42,20 @@ return `​​​​​​​​​​​​​​​​​​​​​​​​
 ║➤ ${prefix}nomegp [Nome]
 ║➤ ${prefix}descgp [Descrição]
 ║➤ ${prefix}fotogp [Marque-Foto]
-║➤ ${prefix}promover [Marque-Por-@]
-║➤ ${prefix}rebaixar [Marque-Por-@]
+║➤ ${prefix}promover [Marque-Msg]
+║➤ ${prefix}rebaixar [Marque-Msg]
 ║➤ ${prefix}gpconfig
+║
+╠┅═┅══⟮ ☢️ ⟯══┅═┅═᳀
+║    😏 ΝϴᏙϴՏ 😏
+╠┅═┅══⟮ ☢️️ ⟯══┅═┅═᳀
+║
+║➤ ${prefix}fazernick [Nome]
+║➤ ${prefix}consultarcpf [CPF]
+║➤ ${prefix}consultarcnpj [CNPJ]
+║➤ ${prefix}consultarip [IP]
+║➤ ${prefix}consultarcep [CEP]
+║➤ ${prefix}consultarddd [DDD]
 ║
 ╠┅═┅══⟮ 📌️ ⟯══┅═┅═᳀
 ║     🎇 Logos 🎇
@@ -64,7 +76,6 @@ return `​​​​​​​​​​​​​​​​​​​​​​​​
 ║
 ║➤ ${prefix}gitdobot
 ║➤ ${prefix}letra [ Musica ]
-║➤ ${prefix}letra2 [ Musica ]
 ║➤ ${prefix}traduzir
 ║➤ ${prefix}lzmodsapi
 ║
