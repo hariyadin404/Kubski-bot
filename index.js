@@ -448,7 +448,7 @@ break
 
 case 'lzmodsapi':
 case 'lzapi':
-reply("https://lzmods-api.herokuapp.com/")
+reply("https://lzmods-api-v2.herokuapp.com/")
 break
 
 case 'rg':
@@ -480,7 +480,7 @@ teks = args.join(' ')
 teks1 = teks.split("/")[0];
 teks2 = teks.split("/")[1];
 reply(enviar.espere)
-gradient = await fetchJson(`https://lzmods-api.herokuapp.com/textpro/pornhub-logo?texto1=${teks1}&texto2=${teks2}&apikey=lzmods`)
+gradient = await fetchJson(`https://lzmods-api-v2.herokuapp.com/textpro/pornhub-logo?texto1=${teks1}&texto2=${teks2}&apikey=lzmods`)
 result = await getBuffer(gradient.resultado)
 await lz.sendMessage(from, result, image, {quoted: selo, caption: (enviar.sucess)})
 break
@@ -492,7 +492,7 @@ teks = args.join(' ')
 teks11 = teks.split("/")[0];
 teks22 = teks.split("/")[1];
 reply(enviar.espere)
-gradient = await fetchJson(`https://lzmods-api.herokuapp.com/textpro/glitch2-logo?texto1=${teks11}&texto2=${teks22}&apikey=lzmods`)
+gradient = await fetchJson(`https://lzmods-api-v2.herokuapp.com/textpro/glitch2-logo?texto1=${teks11}&texto2=${teks22}&apikey=lzmods`)
 result = await getBuffer(gradient.resultado)
 await lz.sendMessage(from, result, image, {quoted: selo, caption: (enviar.sucess)})
 break
@@ -830,28 +830,64 @@ break
 
 // ==========/  G r u p o s \========== \\
 
-case 'promover': // Creditos: Aleatory Bot
-case 'promote':
+case 'w':
 case 'ademir':
+case 'ademiro':
+case 'daradm':
+case 'promote':
+case 'promover':
+case 'adm':
   if (!isGroup) return reply(enviar.apenas.grupos)
   if (!isGroupAdmins) return reply(enviar.bad.adm)
   if (!isBotGroupAdmins) return reply(enviar.bad.BotAdm)
-  const dlptu = body.slice(10)
-  if (dlptu.length > 14)return reply(`Exemplo : ${prefix}promover @55439220420`) 
-  if (info.message.extendedTextMessage === undefined || info.message.extendedTextMessage === null) return
-  mentioned = info.message.extendedTextMessage.contextInfo.mentionedJid
-  if (mentioned.length > 1) {
-  ytb = 'F\n'
-  for (let _ of mentioned) {
-  ytb += `@${_.split('@')[0]}\n`
-  }
-  mentions(from, mentioned, true)
-  lz.groupRemove(from, mentioned)
-  } else {
-  mentions(`@${mentioned[0].split('@')[0]} agora é admin do grupo!`, mentioned, true)
-  lz.groupMakeAdmin(from, mentioned)
-  }
-  break
+if (info.message.extendedTextMessage === null || info.message.extendedTextMessage === undefined) return reply('Marque Alguem Para Virar Adm')
+setTimeout(function() {}, 2000);
+if (info.message.extendedTextMessage.contextInfo.participant === undefined) {
+entah = info.message.extendedTextMessage.contextInfo.mentionedJid
+if (exe1.length > 1) {
+var M_exe = []
+for (let cut of exe1) {
+M_exe.push(cut)
+}
+lz.groupMakeAdmin(from, M_exe)
+} else {
+lz.groupMakeAdmin(from, [exe1[0]])
+}
+} else {
+exe1 = info.message.extendedTextMessage.contextInfo.participant
+lz.groupMakeAdmin(from, [exe1])
+reply(`@${num.split('@')[0]} Eo Novo Ademir Do Grupo ${groupName}`)
+}
+break
+
+case 'membrocomum':
+case 'gaysupremo':
+case 'lzdomina':
+case 'demote':
+case 'promover':
+if (info.message.extendedTextMessage.contextInfo.participant == NumeroDoDono) return reply(`❬ ❎ ❭ ${pushname} Não Posso Remover Meu Dono De Adm Seu Burro ❬ ❎ ❭ `)
+  if (!isGroup) return reply(enviar.apenas.grupos)
+  if (!isGroupAdmins) return reply(enviar.bad.adm)
+  if (!isBotGroupAdmins) return reply(enviar.bad.BotAdm)
+if (info.message.extendedTextMessage === null || info.message.extendedTextMessage === undefined) return reply('Marque Alguem Para Virar Adm')
+setTimeout(function() {}, 2000);
+if (info.message.extendedTextMessage.contextInfo.participant === undefined) {
+entah = info.message.extendedTextMessage.contextInfo.mentionedJid
+if (exe1.length > 1) {
+var M_exe = []
+for (let cut of exe1) {
+M_exe.push(cut)
+}
+lz.groupDemoteAdmin(from, M_exe)
+} else {
+lz.groupDemoteAdmin(from, [exe1[0]])
+}
+} else {
+exe1 = info.message.extendedTextMessage.contextInfo.participant
+lz.groupDemoteAdmin(from, [exe1])
+reply(`@${num.split("@")[0]} Eo Novo Membro Comum Do Grupo ${groupName}`)
+}
+break
 
 //=====================================\\
 
@@ -1198,6 +1234,130 @@ fs.unlinkSync(media)
 } else {
 reply('marque uma foto mano ')
 }
+break
+
+// ==========/  Consultas \========== \\
+
+case 'consultarddd':
+case 'ddd':
+  if (args.length < 1) return reply(`Cade o DDD ._.? Exemplo: ${prefix + command} 62`)
+  if (!isRG) return reply(`${NotRG}`)
+send = await fetchJson(`https://lzmods-api-v2.herokuapp.com/consultas/ddd?ddd=${q}&apikey=lzmods`)
+result = `
+🔎 Consulta De DDD 🔍
+
+DDD INFORMADO: ${q}
+Cidades Relacionadas:
+${send.cidades_relacionadas}
+`
+lz.sendMessage(from, result, text, {quoted: selo})
+break
+
+case 'consultarip':
+case 'ip':
+  if (args.length < 1) return reply(`Cade o CNPJ ._.? Exemplo: ${prefix + command} 8.8.8.8`)
+  if (!isRG) return reply(`${NotRG}`)
+send = await fetchJson(`https://lzmods-api-v2.herokuapp.com/consultas/ip?ip=${q}&apikey=lzmods`)
+var lzdomina = `
+🔎 Consulta De IP 🔍
+
+IP INFORMADO: ${q}
+Provedor 1: ${send.provedor1}
+Provedor 2: ${send.provedor2}
+Cidade: ${send.cidade}
+local: ${send.local}
+Horario Local: ${send.horario_local}
+Sigla Do Pais: ${send.sigla_do_pais}
+Latitude: ${send.latitude}
+Longitude: ${send.longitude}
+`
+lz.sendMessage(from, lzdomina, text, {quoted: selo})
+break
+
+case 'consultarcnpj':
+case 'cnpj':
+  if (args.length < 1) return reply(`Cade o CNPJ ._.? Exemplo: ${prefix + command} 27865757000102`)
+  if (!isRG) return reply(`${NotRG}`)
+send = await fetchJson(`https://lzmods-api-v2.herokuapp.com/consultas/cnpj?cnpj=${q}&apikey=lzmods`)
+var cnpj = `
+🔎 Consulta De CNPJ 🔍
+
+CNPJ INFORMADO: ${q}
+Nome Do Titular: ${send.nome}
+Emitido EM: ${send.criado_em}
+Atividade: ${send.atividade_principal}
+Localidade: ${send.local}
+Situaçao: ${send.situaçao}
+Sigla Do Estado: ${send.sigla_do_estado}
+Telefone: ${send.telefone}
+Cep: ${send.cep}
+Numero Da Casa: ${send.numero_da_casa}
+`
+lz.sendMessage(from, cnpj, text, {quoted: selo})
+break
+
+case 'consultarcep':
+case 'cep':
+  if (args.length < 1) return reply(`Cade o CEP ._.? Exemplo: ${prefix + command} 01153000`)
+  if (!isRG) return reply(`${NotRG}`)
+send = await fetchJson(`https://lzmods-api-v2.herokuapp.com/consultas/cep?cep=${q}&apikey=lzmods`)
+var cep = `
+🔎 Consulta De Cep 🔍
+
+CEP INFORMADO: ${q}
+LOCAL: ${send.local}
+BAIRRO: ${send.bairro}
+Sigla Do Estado: ${send.uf}
+DDD: ${send.ddd}
+`
+lz.sendMessage(from, cep, text, {quoted: selo})
+break
+
+case 'consultarcpf':
+case 'cpf':
+  if (args.length < 1) return reply(`Cade o Cpf ._.? Exemplo: ${prefix + command} 96944161168`)
+  if (!isRG) return reply(`${NotRG}`)
+send = await fetchJson(`https://lzmods-api-v2.herokuapp.com/apis-limitadas/consultas/cpf?cpf=${q}&apikey=lzmods`)
+var cpf = `
+🔎 Consulta De Cpf 🔍
+
+CPF INFORMADO: ${q}
+NOME DO TITULAR: ${send.nome_do_titular}
+DATA DE NASCIMENTO: ${send.data_de_nascimento}
+SITUAÇÃO: ${send.situaçao}
+EMITIDO EM: ${send.cadastrado_em}
+`
+lz.sendMessage(from, cpf, text, {quoted: selo})
+break
+
+case 'fazernick':
+if (args.length < 1) return reply('Cade o Nome ._.?')
+if (!isRG) return reply(`${NotRG}`)
+send = await fetchJson(`https://lzmods-api-v2.herokuapp.com/others/fazernick?nome=${q}&apikey=lzmods`)
+var nick = `
+✨ Nicks Com o Nome [${q}] Gerados Com Sucesso ✨
+
+${send.resultado.nick1}
+${send.resultado.nick2}
+${send.resultado.nick3}
+${send.resultado.nick4}
+${send.resultado.nick5}
+${send.resultado.nick6}
+${send.resultado.nick7}
+${send.resultado.nick8}
+${send.resultado.nick9}
+${send.resultado.nick10}
+${send.resultado.nick11}
+${send.resultado.nick12}
+${send.resultado.nick13}
+${send.resultado.nick14}
+${send.resultado.nick15}
+${send.resultado.nick16}
+${send.resultado.nick17}
+${send.resultado.nick18}
+${send.resultado.nick19}
+${send.resultado.nick20}`
+lz.sendMessage(from, nick, text, {quoted: selo})
 break
 
 //=====================================\\
