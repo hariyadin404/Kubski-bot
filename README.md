@@ -29,7 +29,7 @@ Um bot simples para whatsapp que está em desenvolvimento.
 - Menu Logos
 - Menu Grupos
     
-[- 3 Novos Comando -]
+[- 3 Novos Comandos -]
 - Anagrama
 - RevelarAnagrama
 - NextAnagrama
