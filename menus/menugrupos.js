@@ -15,6 +15,9 @@ return `​​​​​​​​​​​​​​​​​​​​​​​​
 ║➤ ${prefix}linkgp
 ║➤ ${prefix}ban [Marque-Msg]
 ║➤ ${prefix}voltar [Marque-Msg]
+║➤ ${prefix}anagrama [on/off]
+║➤ ${prefix}nextanagrama [next]
+║➤ ${prefix}revelaranagrama [revelar]
 ║➤ ${prefix}antilink [on/off]
 ║➤ ${prefix}antifake [on/off]
 ║➤ ${prefix}bemvindo [on/off]
