@@ -1153,7 +1153,7 @@ case 'antilink':  // Creditos: Aleatory Bot
 if (!isGroup) return reply(enviar.msg.grupo)
 if (!isGroupAdmins) return reply(enviar.msg.adm)
 if (!isBotGroupAdmins) return reply(enviar.msg.Badmin)
-if (args.length < 1) return reply('1 ativa 0 desativa brow')
+if (args.length < 1) return reply('on ativa e off desativa brow | exemplo: antilink on')
 if (args[0] === 'on') {
 if (isAntiLink) return reply('ja ta ativado brow')
 antilink.push(from)
