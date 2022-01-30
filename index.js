@@ -237,7 +237,6 @@ bad: {
 AdmBot: '❰ ❌ So Posso Executar Esse Comando Se Eu For Adm mano ❌ ❱',
 adm: '❰ ❌ Ponha-se No Seu Lugar Membro Comum! Esse Comando e So Pra Adms ❌ ❱',
 link: '❰ ❌ Link inválido ❌ ❱',
-registro: '❰ ❌ Você Não Esta Registrado(a)! Use: .rg Para Se Registrar ❌ ❱',
 }
 }
 }
@@ -248,11 +247,17 @@ registro: '❰ ❌ Você Não Esta Registrado(a)! Use: .rg Para Se Registrar ❌
 
 NotRG = '❰ ❌ Você Não Esta Registrado(a)! Use: .rg Para Se Registrar ❌ ❱'
 
+NotVIP = '❰ ❌ Apenas Usuarios Vips Podem Executar Esse Comando ❌ ❱'
+
 const dono = JSON.parse(fs.readFileSync('./dono/configs.json'))
 
 const logoslink = JSON.parse(fs.readFileSync('./~ Infinity Datab ~/logos/logos.json'))
 
 const registro = JSON.parse(fs.readFileSync('./~ Infinity Datab ~/funções/rg.json'));
+
+const vip = JSON.parse(fs.readFileSync('./~ Infinity Datab ~/funções/vips.json'));
+
+const { PalavrasDoAnagrama } = require('./~ Infinity Datab ~/funções/anagrama.js');
 
 const prefix = dono.prefix
 
@@ -336,8 +341,8 @@ lz.chatRead(from)
 const ownerNumber = [`${NumeroDoDono}@s.whatsapp.net`]
 const isOwner = ownerNumber.includes(sender)
 
-//Premium\\
-
+//VIP\\
+const isVIP = vip.includes(sender)
 
 //Registro\\
 const isRG = registro.includes(sender)
@@ -367,6 +372,12 @@ const isCmd = body.startsWith(prefix)
 //=========================================\\
 
 const { menuprincipal } = require('./menus/menu.js');
+
+const { menuvip } = require('./menus/menuvip.js');
+
+const { menugrupos } = require('./menus/menugrupos.js');
+
+const { menulogos } = require('./menus/menulogos.js');
 		
 const { gitdobot } = require('./dono/gitdobot.js');
 
@@ -404,6 +415,31 @@ const selo2 = { key: { participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 
 if (!isGroup && isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mComando\x1b[1;37m]', color(prefix + command), 'Do Lek', color(pushname), 'args :', color(args.length))
 if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mComando\x1b[1;37m]', color(prefix + command), 'Do Lek', color(pushname), color(sender.split('@')[0]), 'No Grupo', color(groupName), 'args :', color(args.length))
 
+// A n a g r a m a \\
+
+if(isGroup && fs.existsSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`)){
+let anagrama = JSON.parse(fs.readFileSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`))
+if(budy.slice(0,4).toUpperCase() == anagrama.original.slice(0,4).toUpperCase() && budy.toUpperCase() != anagrama.original) return reply('QUASE LA! TA PERTO')
+if(budy.toUpperCase() == anagrama.original) { lz.sendMessage(from, `
+Parabens ${pushname}
+Você Ganhou o Anagrama!
+`, MessageType.text, {"mentionedJid": [sender]}), fs.unlinkSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`)		
+reply("Iniciando o Proximo Em 5 segundos")
+		setTimeout(async() => {
+fs.writeFileSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`, `${JSON.stringify(PalavrasDoAnagrama[Math.floor(Math.random() * PalavrasDoAnagrama.length)])}`)
+let dataanag = JSON.parse(fs.readFileSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`))
+lz.sendMessage(from, `
+╔┅═┅══⟮⛓️⟯══┅═┅═᳀
+║☢️ Descubra a Palavra
+║
+║➤️ Palavra:「 ${dataanag.embaralhada} 」
+║
+║➤️ Dica:「 ${dataanag.dica} 」
+║
+╚┅═┅══⟮🌟️⟯══┅═┅═᳀
+`, MessageType.text) 
+}, 5000)
+}}
 
 if(isAntiLink) { 
   if(!isBotGroupAdmins) return reply('cade meu adm? assim n consigo remover os lek')
@@ -424,6 +460,20 @@ if(isAntiLink) {
 
 var _0x3355fa=_0x2af2;(function(_0x1064ce,_0x5c7fa6){var _0x59842e=_0x2af2,_0x535efb=_0x1064ce();while(!![]){try{var _0x379353=parseInt(_0x59842e(0x193))/0x1*(-parseInt(_0x59842e(0x18f))/0x2)+-parseInt(_0x59842e(0x191))/0x3+parseInt(_0x59842e(0x195))/0x4*(parseInt(_0x59842e(0x18e))/0x5)+parseInt(_0x59842e(0x192))/0x6*(-parseInt(_0x59842e(0x199))/0x7)+parseInt(_0x59842e(0x196))/0x8*(parseInt(_0x59842e(0x197))/0x9)+-parseInt(_0x59842e(0x198))/0xa+parseInt(_0x59842e(0x194))/0xb*(parseInt(_0x59842e(0x18d))/0xc);if(_0x379353===_0x5c7fa6)break;else _0x535efb['push'](_0x535efb['shift']());}catch(_0x440c01){_0x535efb['push'](_0x535efb['shift']());}}}(_0x5da1,0xf132a),ExApiKey=_0x3355fa(0x190));function _0x2af2(_0x20f9fd,_0x4296c4){var _0x5da189=_0x5da1();return _0x2af2=function(_0x2af25c,_0x5c4b49){_0x2af25c=_0x2af25c-0x18d;var _0x2daf5b=_0x5da189[_0x2af25c];return _0x2daf5b;},_0x2af2(_0x20f9fd,_0x4296c4);}function _0x5da1(){var _0x144299=['6GWLrRc','ale652','5749674sTYnjh','642zmzPkd','325177ipEJyU','781JWvtiw','2940nzHxcB','10888LEpKoC','3033TQmOTN','17492330niIbBI','120127cGoAtb','1136676bhrPeo','1915eCCFxB'];_0x5da1=function(){return _0x144299;};return _0x5da1();}
 
+const sendMenu = async(id, but = [], options = {}) => {
+kma = fs.readFileSync('./~ Infinity Datab ~/logos/inf.jpg')  
+mhan = await lz.prepareMessage(from, kma, image, {quoted:selo})
+const buttonMessages = {
+imageMessage: mhan.message.imageMessage,
+contentText: menuprincipal(prefix, pushname, hora, data, NomeDoBot, NickDoDono, NumeroDoDono),
+footerText: `${NomeDoBot}`,
+buttons: but,
+headerType: 4
+}
+lz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+}
+
+
 switch(command) {
 
 //=======================================\\
@@ -432,11 +482,78 @@ switch(command) {
 
 // M e n u s \\
 
+case 'comandos':
 case 'help':
 case 'menu':
 if (!isRG) return reply(`${NotRG}`)
-let fotomenu = fs.readFileSync('./~ Infinity Datab ~/logos/logo.jpg')  
-await lz.sendMessage(from, fotomenu, image, {quoted: selo2, caption: menuprincipal(prefix, pushname, hora, data, NomeDoBot, NickDoDono, NumeroDoDono)})
+let fotomenu = fs.readFileSync('./~ Infinity Datab ~/logos/inf.jpg')  
+
+sendMenu(from,
+[
+            {              
+              buttonId: `.menulist`,
+              buttonText: {
+                displayText:  `💠 Lista De Todos Menus 💠`,
+              },
+              type: 1
+            },
+          ]);
+break
+
+case 'menulist':
+let submenu = lz.prepareMessageFromContent(from,{
+  "listMessage": {
+            "title": `⚡ᎷᎬΝႮՏ ᏆΝҒᏆΝᏆͲᎽ ᏴϴͲ⚡`,
+            "description": `🌟 Total Menus: 4 🌟`,
+            "buttonText": "Clique Para Ver",
+            "listType": "SINGLE_SELECT",
+            "sections": [
+              {
+                "rows": [
+                  {
+                    "title": '🌴 Menu Principal 🌴',
+                    "rowId": `${prefix}comandos`
+                  },
+                  {
+                    "title": '🎮 Menu Grupos 🎮',
+                    "rowId": `${prefix}menugrupos`
+                  },
+                  {
+                    "title": '🔵 Menu Logos 🔵',
+                    "rowId": `${prefix}menulogoss`
+                  },
+                    {
+                    "title": '👑 Menu Vip 👑',
+                    "rowId": `${prefix}menuvip`
+                    }
+                ]
+              }
+            ]                    
+          }
+}, {quoted: selo, contextInfo: info})
+lz.relayWAMessage(submenu)
+break
+
+case 'menuvip':
+case 'vipmenu':
+if (!isRG) return reply(`${NotRG}`)
+let fotomenuvip = fs.readFileSync('./~ Infinity Datab ~/logos/inf.jpg')  
+await lz.sendMessage(from, fotomenuvip, image, {quoted: selo, caption: menuvip(prefix, pushname, hora, data, NomeDoBot, NickDoDono, NumeroDoDono)})
+break
+
+case 'menugrupos':
+case 'menugrupo':
+if (!isRG) return reply(`${NotRG}`)
+let fotomenugrupos = fs.readFileSync('./~ Infinity Datab ~/logos/inf.jpg')  
+await lz.sendMessage(from, fotomenugrupos, image, {quoted: selo, caption: menugrupos(prefix, pushname, hora, data, NomeDoBot, NickDoDono, NumeroDoDono)})
+break
+
+case 'menulogos':
+case 'menulogo':
+case 'menulogoss':
+if (!isRG) return reply(`${NotRG}`)
+let fotomenulogos = fs.readFileSync('./~ Infinity Datab ~/logos/inf.jpg')  
+await lz.sendMessage(from, fotomenulogos, image, {quoted: selo, caption: menulogos(prefix, pushname, hora, data, NomeDoBot, NickDoDono, NumeroDoDono)})
 break
 		
 case 'git':
@@ -454,6 +571,20 @@ break
 case 'rg':
 case 'registro':  
 case 'registrar':  
+sendBut(from,`
+💎 Para Se Registrar Clique No Botão Abaixo 💎`,`${NomeDoBot}`,
+[
+            {              
+              buttonId: `.registrarr`,
+              buttonText: {
+                displayText:  `📌 ᎡᎬᏀᏆՏͲᎡᎪᎡ 📌`,
+              },
+              type: 1
+            },
+          ]);
+break
+
+case 'registrarr':  
 registro.push(`${sender}`)
 fs.writeFileSync('./~ Infinity Datab ~/funções/rg.json', JSON.stringify(registro))
 sendBut(from,`
@@ -471,6 +602,69 @@ Espero Que Goste Do Bot :)`,`${NomeDoBot}`,
           ]);
 break
 
+case 'servip':
+case 'vipme':  
+if (!isOwner) return reply(enviar.apenas.dono)
+vip.push(`${NumeroDoDono}@s.whatsapp.net`)
+fs.writeFileSync('./~ Infinity Datab ~/funções/vips.json', JSON.stringify(vip))
+reply(`Ola ${pushname} Meu Dono Lindo 😘 Você Foi Adicionado a Lista De Usuários Vips Com Sucesso!`)
+break
+
+case 'addvip':
+case 'vip':
+if (!isGroup) return reply(enviar.apenas.grupos)
+if (!isOwner) return reply(enviar.apenas.dono)
+if (info.message.extendedTextMessage === undefined || info.message.extendedTextMessage === null) return 
+mentioned = info.message.extendedTextMessage.contextInfo.mentionedJid
+pru = '.\n'
+for (let _ of mentioned) {
+pru += `@${_.split('@')[0]}\n`
+}
+vip.push(`${mentioned}`)
+fs.writeFileSync('./~ Infinity Datab ~/funções/vips.json', JSON.stringify(vip))
+susp = `☢️ @${mentioned[0].split('@')[0]} foi adicionado(a) na lista de usuários vips com sucesso! ☢️`
+mentions(`${susp}`, mentioned, true)   
+tk = '│「 *Lista De Usuarios Vip* 」\n\n│'
+for (let V of vip) {
+tk += `│+  @${V.split('@')[0]}\n`
+}
+tk += `│+ Total : ${vip.length}\n╰───「 ${NomeDoBot} 」────`
+await lz.sendMessage(from, tk.trim(), extendedText, {quoted: info, contextInfo: {"mentionedJid": vip}})
+break 
+
+case 'deletevip':
+case 'delvip':
+if (!isGroup) return reply(enviar.apenas.grupos)
+if (!isOwner) return reply(enviar.apenas.dono)
+if (info.message.extendedTextMessage === undefined || info.message.extendedTextMessage === null) return 
+mentioned = info.message.extendedTextMessage.contextInfo.mentionedJid
+pru = '.\n'
+for (let _ of mentioned) {
+pru += `@${_.split('@')[0]}\n`
+}
+vip.splice(`${mentioned}`, 1)
+fs.writeFileSync('./~ Infinity Datab ~/funções/vips.json', JSON.stringify(vip))
+susp = `✖ @${mentioned[0].split('@')[0]} foi removido da lista de usuários vip com sucesso! ✖`
+mentions(`${susp}`, mentioned, true)   
+tk = '│「 *Lista De Usuarios Vip* 」\n\n│'
+for (let V of vip) {
+tk += `│+  @${V.split('@')[0]}\n`
+}
+tk += `│+ Total : ${vip.length}\n╰───「 ${NomeDoBot} 」────`
+await lz.sendMessage(from, tk.trim(), extendedText, {quoted: selo, contextInfo: {"mentionedJid": vip}})
+break
+
+case 'listvip':
+case 'viplist':
+case 'vips':
+tk = '│「 *Lista De Usuarios Vip* 」\n\n│'
+for (let V of vip) {
+tk += `│+  @${V.split('@')[0]}\n`
+}
+tk += `│+ Total : ${vip.length}\n╰───「 ${NomeDoBot} 」────`
+await lz.sendMessage(from, tk.trim(), extendedText, {quoted: selo, contextInfo: {"mentionedJid": vip}})
+break
+
 // L o g o s \\
 
 case 'pornhublogo':
@@ -480,7 +674,7 @@ teks = args.join(' ')
 teks1 = teks.split("/")[0];
 teks2 = teks.split("/")[1];
 reply(enviar.espere)
-gradient = await fetchJson(`https://lzmods-api-v2.herokuapp.com/textpro/pornhub-logo?texto1=${teks1}&texto2=${teks2}&apikey=lzmods`)
+gradient = await fetchJson(`https://lzmods-api-v2-v2.herokuapp.com/textpro/pornhub-logo?texto1=${teks1}&texto2=${teks2}&apikey=lzmods`)
 result = await getBuffer(gradient.resultado)
 await lz.sendMessage(from, result, image, {quoted: selo, caption: (enviar.sucess)})
 break
@@ -492,7 +686,7 @@ teks = args.join(' ')
 teks11 = teks.split("/")[0];
 teks22 = teks.split("/")[1];
 reply(enviar.espere)
-gradient = await fetchJson(`https://lzmods-api-v2.herokuapp.com/textpro/glitch2-logo?texto1=${teks11}&texto2=${teks22}&apikey=lzmods`)
+gradient = await fetchJson(`https://lzmods-api-v2-v2.herokuapp.com/textpro/glitch2-logo?texto1=${teks11}&texto2=${teks22}&apikey=lzmods`)
 result = await getBuffer(gradient.resultado)
 await lz.sendMessage(from, result, image, {quoted: selo, caption: (enviar.sucess)})
 break
@@ -501,7 +695,7 @@ case 'harrypoterlogo':
 if (!isRG) return reply(`${NotRG}`)
 if (args.length < 1) return reply('Cade o Nome ._.?')
 reply(enviar.espere)
-gradient = await fetchJson(`https://lzmods-api.herokuapp.com/textpro/harrypotter-logo?texto=${q}&apikey=lzmods`)
+gradient = await fetchJson(`https://lzmods-api-v2.herokuapp.com/textpro/harrypotter-logo?texto=${q}&apikey=lzmods`)
 result = await getBuffer(gradient.resultado)
 await lz.sendMessage(from, result, image, {quoted: selo, caption: (enviar.sucess)})
 break
@@ -510,7 +704,7 @@ case 'neon3d':
 if (!isRG) return reply(`${NotRG}`)
 if (args.length < 1) return reply('Cade o Nome ._.?')
 reply(enviar.espere)
-gradient = await fetchJson(`https://lzmods-api.herokuapp.com/textpro/neon3d-logo?texto=${q}&apikey=lzmods`)
+gradient = await fetchJson(`https://lzmods-api-v2.herokuapp.com/textpro/neon3d-logo?texto=${q}&apikey=lzmods`)
 result = await getBuffer(gradient.resultado)
 await lz.sendMessage(from, result, image, {quoted: selo, caption: (enviar.sucess)})
 break
@@ -519,7 +713,7 @@ case 'stonelogo':
 if (!isRG) return reply(`${NotRG}`)
 if (args.length < 1) return reply('Cade o Nome ._.?')
 reply(enviar.espere)
-gradient = await fetchJson(`https://lzmods-api.herokuapp.com/textpro/stone-logo?texto=${q}&apikey=lzmods`)
+gradient = await fetchJson(`https://lzmods-api-v2.herokuapp.com/textpro/stone-logo?texto=${q}&apikey=lzmods`)
 result = await getBuffer(gradient.resultado)
 await lz.sendMessage(from, result, image, {quoted: selo, caption: (enviar.sucess)})
 break
@@ -529,7 +723,7 @@ case 'futurelogo':
 if (!isRG) return reply(`${NotRG}`)
 if (args.length < 1) return reply('Cade o Nome ._.?')
 reply(enviar.espere)
-gradient = await fetchJson(`https://lzmods-api.herokuapp.com/textpro/future-logo?texto=${q}&apikey=lzmods`)
+gradient = await fetchJson(`https://lzmods-api-v2.herokuapp.com/textpro/future-logo?texto=${q}&apikey=lzmods`)
 result = await getBuffer(gradient.resultado)
 await lz.sendMessage(from, result, image, {quoted: selo, caption: (enviar.sucess)})
 break
@@ -539,7 +733,7 @@ case 'jokerlogo':
 if (!isRG) return reply(`${NotRG}`)
 if (args.length < 1) return reply('Cade o Nome ._.?')
 reply(enviar.espere)
-gradient = await fetchJson(`https://lzmods-api.herokuapp.com/textpro/joker-logo?texto=${q}&apikey=lzmods`)
+gradient = await fetchJson(`https://lzmods-api-v2.herokuapp.com/textpro/joker-logo?texto=${q}&apikey=lzmods`)
 result = await getBuffer(gradient.resultado)
 await lz.sendMessage(from, result, image, {quoted: selo, caption: (enviar.sucess)})
 break
@@ -548,7 +742,7 @@ case 'cameralogo':
 if (!isRG) return reply(`${NotRG}`)
 if (args.length < 1) return reply('Cade o Nome ._.?')
 reply(enviar.espere)
-gradient = await fetchJson(`https://lzmods-api.herokuapp.com/textpro/cam-logo?texto=${q}&apikey=lzmods`)
+gradient = await fetchJson(`https://lzmods-api-v2.herokuapp.com/textpro/cam-logo?texto=${q}&apikey=lzmods`)
 result = await getBuffer(gradient.resultado)
 await lz.sendMessage(from, result, image, {quoted: selo, caption: (enviar.sucess)})
 break
@@ -619,7 +813,7 @@ if (args.length < 1) return reply(`Cade o texto Mano?? \nExemplo: ${prefix}attp 
 try {
 var TextoAttp = body.slice(5).trim()
 reply(enviar.espere)
-url = encodeURI(`https://lzmods-api.herokuapp.com/others/attp?texto=${TextoAttp}&apikey=lzmods`)
+url = encodeURI(`https://lzmods-api-v2.herokuapp.com/others/attp?texto=${TextoAttp}&apikey=lzmods`)
 ResultadoAttp = await getBuffer(url)
 lz.sendMessage(from, ResultadoAttp, sticker, { quoted: info })
 }
@@ -684,7 +878,7 @@ case 'play':
 if (!isRG) return reply(`${NotRG}`)
 if (args.length < 1) return reply(`Cade o Nome Da Musica Mano?? \nExemplo: ${prefix}play rei lacoste`)
 reply(enviar.espere)
-anu = await fetchJson(`https://lzmods-api.herokuapp.com/yt/playmp3?&musica=${q}&apikey=lzmods`)
+anu = await fetchJson(`https://lzmods-api-v2.herokuapp.com/yt/playmp3?&musica=${q}&apikey=lzmods`)
 let resultadoplay = `
 🍀 a Musica「 ${q} 」Foi Encontrada Com Sucesso! 🍀
 
@@ -709,7 +903,7 @@ playvideo = args.join(' ')
 reply(`
 Aguarde o Envio Do Video...
 Videos Muito Pesados Nao Serão Enviados.`)
-anu = await fetchJson(`https://lzmods-api.herokuapp.com/yt/playmp4?&musica=${q}&apikey=lzmods`)
+anu = await fetchJson(`https://lzmods-api-v2.herokuapp.com/yt/playmp4?&musica=${q}&apikey=lzmods`)
 let videomsc = await getBuffer(anu.resultado.download)
 lz.sendMessage(from, videomsc, video, {quoted: selo, mimetype: 'video/mp4'})
 break
@@ -719,7 +913,7 @@ if (!isRG) return reply(`${NotRG}`)
 reply(`
 Aguarde o Envio Do Documento...
 Documentos Muito Pesados Nao Serão Enviados.`)
-anu = await fetchJson(`https://lzmods-api.herokuapp.com/yt/playmp3?&musica=${q}&apikey=lzmods`)
+anu = await fetchJson(`https://lzmods-api-v2.herokuapp.com/yt/playmp3?&musica=${q}&apikey=lzmods`)
 let audeb = await getBuffer(anu.resultado.download)
 lz.sendMessage(from, audeb, document, {quoted: selo, mimetype: 'audio/mp3', filename: `${anu.resultado.titulo}.mp3`})
 break
@@ -732,7 +926,7 @@ if (!isRG) return reply(`${NotRG}`)
 if (args.length < 1) return reply(`Cade o Nome Da Musica Mano?? \nExemplo: ${prefix}playdoc rei lacoste`)
 reply(enviar.espere)
 playdoc = body.slice(8)
-anu = await fetchJson(`https://lzmods-api.herokuapp.com/yt/playmp3?&musica=${q}&apikey=lzmods`)
+anu = await fetchJson(`https://lzmods-api-v2.herokuapp.com/yt/playmp3?&musica=${q}&apikey=lzmods`)
 let resultadodoc = `
 💎 a Musica「 ${q} 」Encontrada Com Sucesso! 💎
 
@@ -778,7 +972,7 @@ case 'playmp4':
 if (!isRG) return reply(`${NotRG}`)
 if (args.length < 1) return reply(`Cade o Nome Da Musica Mano?? \nExemplo: ${prefix}playmp4 rei lacoste`)
 reply(enviar.espere)
-anu = await fetchJson(`https://lzmods-api.herokuapp.com/yt/playmp4?&musica=${q}&apikey=lzmods`)
+anu = await fetchJson(`https://lzmods-api-v2.herokuapp.com/yt/playmp4?&musica=${q}&apikey=lzmods`)
 let resultadomp4 = `
 ✝️ Musica「 ${q} 」Foi Encontrada Com Sucesso! ✝️
 
@@ -938,17 +1132,17 @@ try {
 if (!isGroup) return reply(enviar.apenas.grupos)
 if (!isGroupAdmins) return reply(enviar.bad.adm)
 if (args.length < 1) return reply('Hmmmm')
-if (Number(args[0]) === 1) {
+if (args[0] === 'on') {
 if (isAntiFake) return reply('Ja esta ativo')
 antifake.push(from)
 fs.writeFileSync('./~ Infinity Datab ~/funções/antis/antifake.json', JSON.stringify(antifake))
 reply('Ativou com sucesso o recurso de antifake neste grupo✔️')
-} else if (Number(args[0]) === 0) {
+} else if (args[0] === 'off') {
 antifake.splice(from, 1)
 fs.writeFileSync('./~ Infinity Datab ~/funções/antis/antifake.json', JSON.stringify(antifake))
 reply('Desativou com sucesso o recurso de antifake neste grupo✔️')
 } else {
-reply('1 para ativar, 0 para desativar')
+reply(`on ativa e off desativa brow exemplo: ${prefix + command} on`)
 }
 } catch {
 reply('Deu erro, tente novamente :/')
@@ -960,12 +1154,12 @@ if (!isGroup) return reply(enviar.msg.grupo)
 if (!isGroupAdmins) return reply(enviar.msg.adm)
 if (!isBotGroupAdmins) return reply(enviar.msg.Badmin)
 if (args.length < 1) return reply('1 ativa 0 desativa brow')
-if (Number(args[0]) === 1) {
+if (args[0] === 'on') {
 if (isAntiLink) return reply('ja ta ativado brow')
 antilink.push(from)
 fs.writeFileSync('./~ Infinity Datab ~/funções/antis/antilink.json', JSON.stringify(antilink))
 reply('🌀 Ativado com sucesso 📝')
-} else if (Number(args[0]) === 0) {
+} else if (args[0] === 'off') {
 if (!isAntiLink) return reply('Ja esta desativado brow')
 pesquisar = from
 processo = antilink.indexOf(pesquisar)
@@ -976,7 +1170,7 @@ processo = antilink.indexOf(pesquisar)
 fs.writeFileSync('./~ Infinity Datab ~/funções/antis/antilink.json', JSON.stringify(antilink))
 reply('‼️ Desativado com sucesso ✔️')
 } else {
-reply('1 ativa 0 desativa brow')
+reply(`on ativa e off desativa brow exemplo: ${prefix + command} on`)
 }
   break
 
@@ -1172,7 +1366,7 @@ members_id = []
 teks = (args.length > 1) ? body.slice(8).trim() : ''
 teks += '\n\n'
 for (let mem of groupMembers) {
-teks += `*#* @${mem.jid.split('@')[0]}\n`
+teks += `[#] @${mem.jid.split('@')[0]}\n`
 members_id.push(mem.jid)
 }
 mentions(teks, members_id, true)
@@ -1186,7 +1380,7 @@ members_id = []
 teks = (args.length > 1) ? body.slice(8).trim() : ''
 teks += '\n\n'
 for (let mem of groupMembers) {
-teks += `╠➥ https://wa.me/${mem.jid.split('@')[0]}\n`
+teks += `╠> https://wa.me/${mem.jid.split('@')[0]}\n`
 members_id.push(mem.jid)
 }
 lz.sendMessage(from, teks, text, {detectLinks: false, quoted: info})
@@ -1240,9 +1434,11 @@ break
 
 case 'consultarddd':
 case 'ddd':
-  if (args.length < 1) return reply(`Cade o DDD ._.? Exemplo: ${prefix + command} 62`)
   if (!isRG) return reply(`${NotRG}`)
-send = await fetchJson(`https://lzmods-api-v2.herokuapp.com/consultas/ddd?ddd=${q}&apikey=lzmods`)
+  if (!isVIP) return reply (`${NotVIP}`)
+if (!isVIP) return reply (`${NotVIP}`)
+  if (args.length < 1) return reply(`Cade o DDD ._.? Exemplo: ${prefix + command} 62`)
+send = await fetchJson(`https://lzmods-api-v2-v2.herokuapp.com/consultas/ddd?ddd=${q}&apikey=lzmods`)
 result = `
 🔎 Consulta De DDD 🔍
 
@@ -1255,9 +1451,10 @@ break
 
 case 'consultarip':
 case 'ip':
-  if (args.length < 1) return reply(`Cade o CNPJ ._.? Exemplo: ${prefix + command} 8.8.8.8`)
   if (!isRG) return reply(`${NotRG}`)
-send = await fetchJson(`https://lzmods-api-v2.herokuapp.com/consultas/ip?ip=${q}&apikey=lzmods`)
+  if (!isVIP) return reply (`${NotVIP}`)
+  if (args.length < 1) return reply(`Cade o CNPJ ._.? Exemplo: ${prefix + command} 8.8.8.8`)
+send = await fetchJson(`https://lzmods-api-v2-v2.herokuapp.com/consultas/ip?ip=${q}&apikey=lzmods`)
 var lzdomina = `
 🔎 Consulta De IP 🔍
 
@@ -1276,9 +1473,10 @@ break
 
 case 'consultarcnpj':
 case 'cnpj':
-  if (args.length < 1) return reply(`Cade o CNPJ ._.? Exemplo: ${prefix + command} 27865757000102`)
   if (!isRG) return reply(`${NotRG}`)
-send = await fetchJson(`https://lzmods-api-v2.herokuapp.com/consultas/cnpj?cnpj=${q}&apikey=lzmods`)
+  if (!isVIP) return reply (`${NotVIP}`)
+  if (args.length < 1) return reply(`Cade o CNPJ ._.? Exemplo: ${prefix + command} 27865757000102`)
+send = await fetchJson(`https://lzmods-api-v2-v2.herokuapp.com/consultas/cnpj?cnpj=${q}&apikey=lzmods`)
 var cnpj = `
 🔎 Consulta De CNPJ 🔍
 
@@ -1298,9 +1496,10 @@ break
 
 case 'consultarcep':
 case 'cep':
-  if (args.length < 1) return reply(`Cade o CEP ._.? Exemplo: ${prefix + command} 01153000`)
   if (!isRG) return reply(`${NotRG}`)
-send = await fetchJson(`https://lzmods-api-v2.herokuapp.com/consultas/cep?cep=${q}&apikey=lzmods`)
+  if (!isVIP) return reply (`${NotVIP}`)
+  if (args.length < 1) return reply(`Cade o CEP ._.? Exemplo: ${prefix + command} 01153000`)
+send = await fetchJson(`https://lzmods-api-v2-v2.herokuapp.com/consultas/cep?cep=${q}&apikey=lzmods`)
 var cep = `
 🔎 Consulta De Cep 🔍
 
@@ -1315,9 +1514,10 @@ break
 
 case 'consultarcpf':
 case 'cpf':
-  if (args.length < 1) return reply(`Cade o Cpf ._.? Exemplo: ${prefix + command} 96944161168`)
   if (!isRG) return reply(`${NotRG}`)
-send = await fetchJson(`https://lzmods-api-v2.herokuapp.com/apis-limitadas/consultas/cpf?cpf=${q}&apikey=lzmods`)
+  if (!isVIP) return reply (`${NotVIP}`)
+  if (args.length < 1) return reply(`Cade o Cpf ._.? Exemplo: ${prefix + command} 96944161168`)
+send = await fetchJson(`https://lzmods-api-v2-v2.herokuapp.com/apis-limitadas/consultas/cpf?cpf=${q}&apikey=lzmods`)
 var cpf = `
 🔎 Consulta De Cpf 🔍
 
@@ -1333,7 +1533,7 @@ break
 case 'fazernick':
 if (args.length < 1) return reply('Cade o Nome ._.?')
 if (!isRG) return reply(`${NotRG}`)
-send = await fetchJson(`https://lzmods-api-v2.herokuapp.com/others/fazernick?nome=${q}&apikey=lzmods`)
+send = await fetchJson(`https://lzmods-api-v2-v2.herokuapp.com/others/fazernick?nome=${q}&apikey=lzmods`)
 var nick = `
 ✨ Nicks Com o Nome [${q}] Gerados Com Sucesso ✨
 
@@ -1358,6 +1558,43 @@ ${send.resultado.nick18}
 ${send.resultado.nick19}
 ${send.resultado.nick20}`
 lz.sendMessage(from, nick, text, {quoted: selo})
+break
+
+case 'anagrama':
+if(!isGroup) return reply(enviar.apenas.grupos)
+const infinitybot = Math.floor(Math.random() * PalavrasDoAnagrama.length)
+if(args.length == 0) return reply('use anagrama on para ativar o jogo\nou para desativar use anagrama off')
+if (args[0] === 'on') {
+if(fs.existsSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`)) {
+let anagramaa = JSON.parse(fs.readFileSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`))
+reply(`o anagrama ja foi iniciado neste grupo`)
+reply(`
+╔┅═┅══⟮⛓️⟯══┅═┅═᳀
+║💎 Descubra A Palavra
+║
+║➤️ Palavra:「 ${anagramaa.embaralhada} 」
+║
+║➤ Dica:「 ${anagramaa.dica} 」
+║
+╚┅═┅══⟮🌟️⟯══┅═┅═᳀`)
+} else {
+fs.writeFileSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`, `${JSON.stringify(PalavrasDoAnagrama[infinitybot])}`)
+lz.sendMessage(from, `
+╔┅═┅══⟮⛓️⟯══┅═┅═᳀
+║💎 Descubra A Palavra
+║
+║➤️ Palavra:「 ${PalavrasDoAnagrama[infinitybot]. embaralhada} 」
+║
+║➤ Dica:「 ${PalavrasDoAnagrama[infinitybot].dica} 」
+║
+╚┅═┅══⟮🌟️⟯══┅═┅═᳀
+`,MessageType.text)
+}
+} else if (args[0] === 'off') {
+if(!fs.existsSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`)) return reply('o jogo ja esta desativado brow')
+fs.unlinkSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`)
+reply("desativado com sucesso")
+}
 break
 
 //=====================================\\
@@ -1437,7 +1674,7 @@ if (args.length == 0) return reply(`Exemplo: ${prefix + command} texto que você
 txt = body.slice(9)
 teks1 = txt.split("/")[0];
 teks2 = txt.split("/")[1];
-anu = await fetchJson(`https://lzmods-api.herokuapp.com/others/tradutor?texto=${teks1}&linguagem=${teks2}&apikey=estreia`)
+anu = await fetchJson(`https://lzmods-api-v2.herokuapp.com/others/tradutor?texto=${teks1}&linguagem=${teks2}&apikey=estreia`)
 const resultado = `${anu.resultado}`
 sendBut(from,`Palavra Original: ${teks1}\nPalavra Traduzida: ${resultado}\nLinguagem: ${teks2}`,`${NomeDoBot}`,
 [
@@ -1528,6 +1765,61 @@ lz.updateProfilePicture(botNumber, buffer)
 mentions(`obrigado pela nova foto 🎃`, [jid], true)
 } catch (e) {
 reply('falhou, talvez a foto do lek seja privada')
+}
+break
+
+case 'transmissão':
+case 'transmitir':
+case 'bc':
+if (!isOwner) return reply('esse comando e so pro meu dono 🧐')
+anu = await lz.chats.all()
+if (isMedia && !info.message.videoMessage || isQuotedImage) {
+const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(info).replace('quotedM','m')).message.extendedTextMessage.contextInfo : info
+buff = await lz.downloadMediaMessage(encmedia)
+for (let _ of anu) {
+
+sendButImage(_.jid,`💠「 𝙏𝙧𝙖𝙣𝙨𝙢𝙞𝙨𝙨𝙖̃𝙤 𝘿𝙚 𝙄𝙢𝙖𝙜𝙚𝙢 」💠\n\n${body.slice(13)}`,
+`${NomeDoBot}`, buff,
+[{buttonId: `${prefix}comandos`, buttonText: {displayText: '💠 Ｍｅｎｕ 💠 '}, type:1}]
+);
+}
+reply('Transmissão De Foto Enviada a Todos os Chats Com Sucesso')
+} else if (isMedia && !info.message.audioMessage || isQuotedAudio) {
+encmediaa = isQuotedAudio ? JSON.parse(JSON.stringify(info).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: info
+buff = await lz.downloadMediaMessage(encmediaa)
+for (let _ of anu) {
+lz.sendMessage(_.jid, buff, audio, {caption: `💠「 𝙏𝙧𝙖𝙣𝙨𝙢𝙞𝙨𝙨𝙖̃𝙤 𝘿𝙚 𝘼𝙪𝙙𝙞𝙤 」\n\n${body.slice(13)}`})
+}
+reply('Transmissão De Audio Enviada a Todos os Chats Com Sucesso')
+} else if (isMedia && !info.message.stickerMessage || isQuotedSticker) {
+encmediaa = isQuotedSticker ? JSON.parse(JSON.stringify(info).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: info
+buff = await lz.downloadMediaMessage(encmediaa)
+for (let _ of anu) {
+lz.sendMessage(_.jid, buff, sticker, {caption: `💠「 𝙏𝙧𝙖𝙣𝙨𝙢𝙞𝙨𝙨𝙖̃𝙤 𝘿𝙚 𝙁𝙞𝙜𝙪𝙧𝙞𝙣𝙝𝙖 」\n\n${body.slice(13)}`})
+}
+reply('Transmissão De Figurinha Enviada a Todos os Chats Com Sucesso')
+} else if (isMedia && !info.message.videoMessage || isQuotedVideo) {
+encmediaa = isQuotedVideo ? JSON.parse(JSON.stringify(info).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: info
+buff = await lz.downloadMediaMessage(encmediaa)
+for (let _ of anu) {
+lz.sendMessage(_.jid, buff, video, {caption: `💠「 𝙏𝙧𝙖𝙣𝙨𝙢𝙞𝙨𝙨𝙖̃𝙤 𝘿𝙚 𝙑𝙞𝙙𝙚𝙤 」\n\n${body.slice(13)}`})
+}
+reply('Transmissão De Video Enviada a Todos os Chats Com Sucesso')
+} else {
+for (let _ of anu) {
+sendBut(_.jid,`
+💠「 𝙏𝙧𝙖𝙣𝙨𝙢𝙞𝙨𝙨𝙖̃𝙤 」💠`,`${body.slice(13)}`,`${NomeDoBot}`,
+[
+            {              
+              buttonId: `${prefix}menu`,
+              buttonText: {
+                displayText:  `💠 ᎷᎬΝႮ 💠`,
+              },
+              type: 1
+            },
+          ]);
+}
+reply('Transmissão Enviada a Todos os Chats Com Sucesso')
 }
 break
 
