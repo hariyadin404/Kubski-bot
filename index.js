@@ -1596,6 +1596,41 @@ fs.unlinkSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`)
 reply("desativado com sucesso")
 }
 break
+		
+case 'next':
+case 'nextanagrama':  
+if (!isGroupAdmins) return reply('somente adms')
+if (!isVIP) return reply(`${NotVIP}`)
+fs.unlinkSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`)
+const next = Math.floor(Math.random() * PalavrasDoAnagrama.length)
+fs.writeFileSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`, `${JSON.stringify(PalavrasDoAnagrama[next])}`)
+lz.sendMessage(from, `
+╔┅═┅══⟮⛓️⟯══┅═┅═᳀
+║💎 Descubra A Palavra
+║
+║➤️ Palavra:「 ${PalavrasDoAnagrama[next].embaralhada} 」
+║
+║➤ Dica:「 ${PalavrasDoAnagrama[next].dica} 」
+║
+╚┅═┅══⟮🌟️⟯══┅═┅═᳀
+`,MessageType.text)
+break
+
+case 'revelar':
+case 'revelaranagrama':  
+if (!isGroupAdmins) return reply('somente adms')
+if (!isVIP) return reply(`${NotVIP}`)
+let revelar = JSON.parse(fs.readFileSync(`./~ Infinity Datab ~/funções/logs/anagrama-${from}.json`))
+reply (`
+╔┅═┅══⟮⛓️⟯══┅═┅═᳀
+║
+║➤️ Palavra Embaralhada:「 ${revelar.embaralhada} 」
+║
+║➤ Palavra Original:「 ${revelar.original} 」
+║
+╚┅═┅══⟮🌟️⟯══┅═┅═᳀
+`)
+break
 
 //=====================================\\
 
