@@ -499,6 +499,12 @@ sendMenu(from,
             },
           ]);
 break
+	
+case 'menuuu':
+if (!isRG) return reply(`${NotRG}`)
+let fotomenu = fs.readFileSync('./~ Infinity Datab ~/logos/logo.jpg')  
+await lz.sendMessage(from, fotomenu, image, {quoted: selo, caption: menuprincipal(prefix, pushname, hora, data, NomeDoBot, NickDoDono, NumeroDoDono)})
+break
 
 case 'menulist':
 let submenu = lz.prepareMessageFromContent(from,{
@@ -512,7 +518,7 @@ let submenu = lz.prepareMessageFromContent(from,{
                 "rows": [
                   {
                     "title": '🌴 Menu Principal 🌴',
-                    "rowId": `${prefix}comandos`
+                    "rowId": `${prefix}menuuu`
                   },
                   {
                     "title": '🎮 Menu Grupos 🎮',
