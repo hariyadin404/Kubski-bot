@@ -28,6 +28,7 @@ Um bot simples para whatsapp que está em desenvolvimento.
 [- Correçoes -]
 - Plays Arrumados Novamente
 - Logos Arrumadas Novamente
+- Bug De Nao Hospedar Na Herku Arrumado ( Foi Testado e Ta Tudo Certo )
 
 em breve a v3 com varios novos comandos :)
 ```
