@@ -25,9 +25,11 @@ Um bot simples para whatsapp que está em desenvolvimento.
 - Menu Logos
 - Menu Grupos
     
-[- 1 Novo Comando -]
+[- 3 Novo Comando -]
 - Anagrama
-
+-RevelarAnagrama
+- NextAnagrama
+    
 [- Correçoes -]
 - Plays Arrumados Novamente
 - Logos Arrumadas Novamente
