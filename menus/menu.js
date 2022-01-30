@@ -42,8 +42,9 @@ return `​​​​​​​​​​​​​​​​​​​​​​​​
 ╠┅═┅══⟮ 👽️ ⟯══┅═┅═᳀
 ║
 ║➤ ${prefix}gitdobot
-║➤ ${prefix}letra [ Musica ]
-║➤ ${prefix}traduzir
+║➤ ${prefix}anagrama [on/off]
+║➤ ${prefix}nextanagrama [next]
+║➤ ${prefix}revelaranagrama [revelar]
 ║➤ ${prefix}lzmodsapi
 ║
 ╠┅═┅══⟮ 💎 ⟯══┅═┅═᳀
