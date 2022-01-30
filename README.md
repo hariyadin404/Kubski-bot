@@ -1,4 +1,4 @@
-# </Infinity Bot V2.6/>
+# </Infinity Bot V3/>
 <div align="center">
 </div>
 <p align="center">
@@ -12,7 +12,11 @@
 
 Um bot simples para whatsapp que está em desenvolvimento.
 ```bash
----------- Novidades Da V2.6 ----------
+---------- Novidades Da V3 ----------
+  
+[- Coisas Adicionadas -]
+- Menu De Listas
+- Menu Com Botoes
 
 [- Melhorias -]
 - Sistema De Registrar Melhorado
@@ -27,7 +31,7 @@ Um bot simples para whatsapp que está em desenvolvimento.
     
 [- 3 Novo Comando -]
 - Anagrama
--RevelarAnagrama
+- RevelarAnagrama
 - NextAnagrama
     
 [- Correçoes -]
