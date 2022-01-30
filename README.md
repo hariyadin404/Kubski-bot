@@ -1,4 +1,4 @@
-# </Infinity Bot V2/>
+# </Infinity Bot V2.5/>
 <div align="center">
 </div>
 <p align="center">
@@ -12,23 +12,24 @@
 
 Um bot simples para whatsapp que está em desenvolvimento.
 ```bash
---------- Novidades Da V2 ---------
+--------- Novidades Da V2.5 ---------
     
-[- 6 Novos Comandos -]
-- fazernick ( Nome )
-- consultarcpf ( Numero Do CPF )
-- consultarcep ( Numero Do CEP )
-- consultarcnpj ( Numero Do CNPJ )
-- consultarip ( Numero Do IP )
-- consultarddd ( Numero Do DDD )
+[- 1 Nova Categoria -]
+- VIP
+    
+[- 3 Novos Menus -]
+- Menu Vip
+- Menu Logos
+- Menu Grupos
+    
+[- 1 Novo Comando -]
+- Anagrama
 
 [- Correçoes -]
-- Promover a Adm Adicionado e Arrumado
-- Rebaixar a Adm Adicionado e Arrumado
 - Plays Arrumados Novamente
 - Logos Arrumadas Novamente
 
-em breve a v2.5 com varios novos comandos :)
+em breve a v3 com varios novos comandos :)
 ```
    
 ----------- Para Duvidas -----------
