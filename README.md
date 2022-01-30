@@ -12,7 +12,7 @@
 
 Um bot simples para whatsapp que está em desenvolvimento.
 ```bash
---------- Novidades Da V2.5 ---------
+---------- Novidades Da V2.5 ----------
     
 [- 1 Nova Categoria -]
 - VIP
