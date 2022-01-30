@@ -1239,8 +1239,8 @@ break
 
 case 'ban':  // Creditos: Aleatory Bot
   if (!isGroup) return reply(enviar.apenas.grupos)
-  if (!isGroupAdmins) return reply(enviar.bad.adm)
-  if (!isBotGroupAdmins) return reply(enviar.bad.BotAdm)
+  if (!isGroupAdmins) return reply('esse comando so pode ser usado pro administradores')
+  if (!isBotGroupAdmins) return reply('o bot nao e adm entao nao posso executar esse comando')
   if (info.message.extendedTextMessage === null || info.message.extendedTextMessage === undefined) return reply('Marque uma mensagem')
   if (info.message.extendedTextMessage.contextInfo.participant == NumeroDoDono) return reply('Não posso remover meu dono.')
   if (info.message.extendedTextMessage.contextInfo.participant == botNumber) return reply('ei ei ei q merda e essa kkkkk')
@@ -1267,8 +1267,8 @@ case 'ban':  // Creditos: Aleatory Bot
 case 'voltar':
 case 'reviver':
   if (!isGroup) return reply(enviar.apenas.grupos)
-  if (!isGroupAdmins) return reply(enviar.bad.adm)
-  if (!isBotGroupAdmins) return reply(enviar.bad.BotAdm)
+  if (!isGroupAdmins) return reply('esse comando so pode ser usado pro administradores')
+  if (!isBotGroupAdmins) return reply('o bot nao e adm entao nao posso executar esse comando')
   if (info.message.extendedTextMessage === null || info.message.extendedTextMessage === undefined) return reply('Marque uma mensagem')
   if (info.message.extendedTextMessage.contextInfo.participant == botNumber) return reply('ei ei ei q merda e essa kkkkk')
   setTimeout(function() {}, 2000);
