@@ -13,6 +13,9 @@
 Um bot simples para whatsapp que está em desenvolvimento.
 ```bash
 ---------- Novidades Da V2.5 ----------
+
+[- Melhorias -]
+- Sistema De Registrar Melhorado
     
 [- 1 Nova Categoria -]
 - VIP
