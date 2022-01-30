@@ -1,4 +1,4 @@
-# </Infinity Bot V2.5/>
+# </Infinity Bot V2.6/>
 <div align="center">
 </div>
 <p align="center">
@@ -12,7 +12,7 @@
 
 Um bot simples para whatsapp que está em desenvolvimento.
 ```bash
----------- Novidades Da V2.5 ----------
+---------- Novidades Da V2.6 ----------
 
 [- Melhorias -]
 - Sistema De Registrar Melhorado
