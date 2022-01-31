@@ -502,8 +502,8 @@ break
 	
 case 'menuuu':
 if (!isRG) return reply(`${NotRG}`)
-let fotomenu = fs.readFileSync('./~ Infinity Datab ~/logos/logo.jpg')  
-await lz.sendMessage(from, fotomenu, image, {quoted: selo, caption: menuprincipal(prefix, pushname, hora, data, NomeDoBot, NickDoDono, NumeroDoDono)})
+let fotomenuu = fs.readFileSync('./~ Infinity Datab ~/logos/logo.jpg')  
+await lz.sendMessage(from, fotomenuu, image, {quoted: selo, caption: menuprincipal(prefix, pushname, hora, data, NomeDoBot, NickDoDono, NumeroDoDono)})
 break
 
 case 'menulist':
