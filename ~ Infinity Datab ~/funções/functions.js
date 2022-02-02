@@ -128,7 +128,7 @@ const close = (id, text) => {
 	spins.fail(id, {text: text})
 }
 
-const banner = cfonts.render(('Infinity|Bot'), {
+const banner = cfonts.render(('Kubski|Bot'), {
   font: 'block',
   color: 'candy',
   align: 'center',
