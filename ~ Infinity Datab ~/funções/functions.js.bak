@@ -91,18 +91,15 @@ const getRandom = (ext) => {
 const spinner = { 
   "interval": 120,
   "frames": [
-    "I",
-    "IN",
-    "INF",
-    "INFI",
-    "INFIN",
-    "INFINI",
-    "INFINIT",
-    "INFINITY",
-    "INFINITY-",
-    "INFINITY-B",
-    "INFINITY-BO",
-    "INFINITY-BOT" 
+    "K",
+    "KU",
+    "KUB",
+    "KUBS",
+    "KUBSK",
+    "KUBSKI",
+    "KUBSKI B",
+    "KUBSKI BO",
+    "KUBSKI BOT" 
   ]}
 
 let globalSpinner;
